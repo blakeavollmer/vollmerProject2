@@ -1,0 +1,31 @@
+<%- include("../includes/header.ejs", {title: player[0].player_name}); %>
+
+<h1>Player: <%=player[0].player_name%></h1>
+
+<br />
+Team Name: <%=team[0].team_name%>
+
+<br />
+
+
+<h2>Stats</h2>
+<table border="1">
+    <tr><th>Champion</th><th>Kills</th><th>Deaths</th><th>Assists</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><%=result[i].champion_name%>   </td>
+        <td><%=result[i].kills%></td>
+        <td><%=result[i].deaths%></td>
+        <td><%=result[i].assists%></td>
+    </tr>
+    <% } %>
+</table>
+
+<a href="/performance/add">Add more games!</a> <br />
+
+<h3>Overall KDA</h3>
+<%=player[0].kda%>
+
+
+
+<%- include("../includes/footer.ejs"); %>

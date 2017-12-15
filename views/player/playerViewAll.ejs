@@ -1,0 +1,25 @@
+<%- include("../includes/header.ejs", {title:"Team - View All"}); %>
+
+<h1>Players</h1>
+<a href="/player/add">Add Yourself!</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Actions</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/player/?player_id=<%= result[i].player_id %>"><%= result[i].player_name %></a></td>
+        <%if (result[i].player_id > 48){%>
+        <td>
+            <form action="/player/delete/" style="display:inline;">
+                <input type="hidden" name="player_id" id="player_id" value="<%= result[i].player_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+
+        </td>
+        <% } %>
+    </tr>
+    <% } %>
+</table>
+<%- include("../includes/footer.ejs"); %>

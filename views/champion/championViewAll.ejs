@@ -1,0 +1,17 @@
+<%- include("../includes/header.ejs", {title:"Team - View All"}); %>
+
+<h1>Players</h1>
+<a href="/champion/add">Add A Champion!</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Champion Name</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/champion/?champion_id=<%= result[i].champion_id %>"><%= result[i].champion_name %></a></td>
+
+    </tr>
+    <% } %>
+</table>
+<%- include("../includes/footer.ejs"); %>

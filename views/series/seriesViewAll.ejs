@@ -1,0 +1,22 @@
+<%- include("../includes/header.ejs", {title:"Games - View All"}); %>
+
+<h1>Games Played</h1>
+
+<br />
+<a href="/series/playerAvgKill">View Average Kills By Player</a>
+
+<br />
+
+Championship Games:
+<table border="1", cellspacing="20">
+    <tr><th>Bracket</th><th>Winner</th><th>Loser</th><th>Played At</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><%=result[i].bracket%>   </td>
+        <td><%=result[i].winner%></td>
+        <td><%=result[i].loser%></td>
+        <td><%=result[i].played_at%></td>
+    </tr>
+    <% } %>
+</table>
+<%- include("../includes/footer.ejs"); %>

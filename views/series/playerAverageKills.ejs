@@ -1,0 +1,16 @@
+<%- include("../includes/header.ejs", {title:"Player Average Kills"}); %>
+
+<h1>Average Kills by Player</h1>
+
+<br />
+
+<table border="1", cellspacing="20">
+    <tr><th>Player Name</th><th>Average Kills</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><%=result[i].player_name%>   </td>
+        <td><%=result[i].kills%></td>
+    </tr>
+    <% } %>
+</table>
+<%- include("../includes/footer.ejs"); %>

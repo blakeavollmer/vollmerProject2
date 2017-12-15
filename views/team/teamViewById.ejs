@@ -1,0 +1,20 @@
+<%- include("../includes/header.ejs", {title:"Team - " + team[0].team_name}); %>
+<h1>Team <%=team[0].team_name%></h1>
+<ul>
+    <li>Team Name: <%= team[0].team_name %></li>
+    <%if (coach.length > 0){%>
+    Coach: <a href="/coach/?coach_id=<%= coach[0].coach_id %>"><%= coach[0].coach_name %></a>
+    <%}%>
+    <li>Players:
+        <ul>
+            <% for(var i=0; player.length > i; i++ ) { %>
+            <li><a href="/player/?player_id=<%= player[i].player_id %>"><%= player[i].player_name %> (<%=player[i].position%>)%></a></li>
+            <% } %>
+        </ul>
+    </li>
+
+</ul>
+
+<a href="/team/all"><< back</a>
+
+<%- include("../includes/footer.ejs"); %>

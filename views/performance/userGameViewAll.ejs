@@ -1,0 +1,23 @@
+<%- include("../includes/header.ejs", {title: "Player Games"}); %>
+
+<% if(result.length == 0){%>
+There is no user data! <a href="/performance/add">Add your games!</a> <br />
+<%}%>
+<%if(result.length > 0){%>
+<br />
+<a href="/performance/add">Add more games!</a> <br /> <br />
+<h2>Stats</h2>
+<table border="1">
+    <tr><th>Player</th><th>Champion</th><th>Kills</th><th>Deaths</th><th>Assists</th><th>Team</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/player/?player_id=<%= result[i].player_id %>"><%= result[i].player_name %></a></td>
+        <td><%=champion[i].champion_name%>   </td>
+        <td><%=result[i].kills%></td>
+        <td><%=result[i].deaths%></td>
+        <td><%=result[i].assists%></td>
+        <td><%=team[0].team_name%></td>
+    </tr>
+    <%}%>
+</table>
+<%}%>

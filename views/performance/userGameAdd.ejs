@@ -1,0 +1,48 @@
+<%- include("../includes/header.ejs", {title:"Add New Player"}); %>
+<h1>Add a New Game</h1>
+<form action="/performance/insert" method="get">
+    Player Name
+    <br />
+    <select id="player_id" name="player_id" multiple="multiple">
+        <% for(var i=0; result.length > i; i++ ) { %>
+        <option value="<%= result[i].player_id %>"><%= result[i].player_name %></option>
+        <% } %>
+    </select>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#player_id').multiselect();
+        });
+    </script>
+    <br />
+
+    Don't see your name? <a href="/player/add"> Add it now.</a>
+    <br />
+    <br />
+    Kills: <input id="kills" name="kills" type="number" />
+    <br />
+    Deaths: <input id="deaths" name="deaths" type="number" />
+    <br />
+    Assists: <input id="assists" name="assists" type="number" />
+    <br />
+    Champion <br/>
+    <select id="champion_id" name="champion_id" multiple="multiple">
+        <% for(var i=0; champion.length > i; i++ ) { %>
+        <option value="<%= champion[i].champion_id %>"><%= champion[i].champion_name %></option>
+        <% } %>
+    </select>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#champion_id').multiselect();
+        });
+    </script>
+
+    <br />
+    Don't see your champion? <a href="/champion/add"> Add it now.</a>
+    <br />
+    <input type="submit" />
+
+</form>
+<%- include("../includes/footer.ejs"); %>

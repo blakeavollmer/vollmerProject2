@@ -1,0 +1,23 @@
+<%- include("../includes/header.ejs", {title: "About"}); %>
+<h1>Requirements</h1> <br />
+ER DIAGRAM: <b>Up to date.</b> <br />
+Relational Schema: <b>Up to date.</b> <br />
+Single application that has a purpose: <b>Complete</b> <br/>
+Request to localhost:3000: <b>Complete</b> <br/>
+About page: <b>Complete</b> <br/>
+Multiple forms: <b>Complete</b> - Found in Teams, Players, User games, and Champions. <br/>
+All forms that require the user to select a pre-existing option should use drop down menus or checkboxes: <b>Complete</b>
+Examples found in Player add form and Add user games. <br />
+All tables in your database must be used by the frontend in some way: <b>complete</b>. The only ones that
+may be slightly hidden are coach (found under team view by id) and venue (found under championship games). <br />
+After the user has submitted a form, some indication that the data was successfully saved to the database should be displayed to the user: <b>Complete</b> <br />
+Multiple form submissions should require that data be stored in multiple tables: <b>complete</b> - see add player games and add new player <br />
+At least one web page must retrieve and display multiple records from multiple tables using a single SQL VIEW: <b>complete</b>.
+Example found in Championship Games --> view average kills by player. Uses a view from my database. <br />
+If you display information in an HTML table, the table needs to have a table header th that describes what each column of information is : <b>complete</b> <br />
+At least one database query from the web application must use a stored function or procedure: <b>Complete</b> -
+Players view by id returns (and updates in the database) KDA based on a stored function at load time. <br />
+At least one web page must display data from a query that uses an aggregate, a group by, and takes in user input that is passed to a HAVING clause: <b>Incomplete</b> - I use aggregate functions (avg/sum) in queries, but not with user input. <br />
+At least one web page must display data from a query that uses a subquery : <b>incomplete</b>.
+
+<%- include("../includes/footer.ejs"); %>

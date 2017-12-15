@@ -1,0 +1,11 @@
+<%- include("../includes/header.ejs", {title:"Add New Champion"}); %>
+<h1>Add a New Champion</h1>
+<form action="/champion/insert" method="get">
+    Champion Name: <input id="champion_name" name="champion_name" type="text" />
+    <br />
+    Champion Role: <input id="role" name="role" type="text" />
+    <br />
+    <input type="submit" />
+
+</form>
+<%- include("../includes/footer.ejs"); %>

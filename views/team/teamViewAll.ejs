@@ -1,0 +1,26 @@
+<%- include("../includes/header.ejs", {title:"Team - View All"}); %>
+
+<h1>Team</h1>
+<a href="/team/add">Add Your Team</a> <br />
+
+<br />
+
+<table border="1">
+    <tr><th>Name</th><th>Actions</th></tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td><a href="/team/?team_id=<%= result[i].team_id %>"><%= result[i].team_name %></a></td>
+        <%if (i > 7){%>
+        <td>
+
+            <form action="/team/delete/" style="display:inline;">
+                <input type="hidden" name="team_id" id="team_id" value="<%= result[i].team_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+
+        </td>
+        <% } %>
+    </tr>
+    <% } %>
+</table>
+<%- include("../includes/footer.ejs"); %>

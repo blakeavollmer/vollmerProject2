@@ -1,0 +1,33 @@
+<%- include("../includes/header.ejs", {title:"Add New Player"}); %>
+<h1>Add a New Player</h1>
+<form action="/player/insert" method="get">
+    Player Name: <input id="player_name" name="player_name" type="text" />
+    <br />
+    <br />
+    Team
+    <br />
+    <select id="team_id" name="team_id" multiple="multiple">
+        <% for(var i=[8]; team.length > i; i++ ) { %>
+        <option value="<%= team[i].team_id %>"><%= team[i].team_name %></option>
+        <% } %>
+    </select>
+
+    <!-- Initialize the multiselect plugin: -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#team_id').multiselect();
+        });
+    </script>
+    <br />
+
+    Don't see your team? <a href="/team/add"> Add it now.</a>
+    <br />
+    <br />
+    Position: <input id="position" name="position" type="text" />
+    <br />
+    Nationality: <input id="nationality" name="nationality" type="text" />
+    <br />
+    <input type="submit" />
+
+</form>
+<%- include("../includes/footer.ejs"); %>
